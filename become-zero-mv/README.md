@@ -1,54 +1,42 @@
-# Remotion video
+# Become Zero MV
 
-<p align="center">
-  <a href="https://github.com/remotion-dev/logo">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-dark.gif">
-      <img alt="Animated Remotion Logo" src="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-light.gif">
-    </picture>
-  </a>
-</p>
+このリポジトリは Remotion で制作した「Become Zero」ミュージックビデオのプロジェクトです。`become-zero-mv/` 以下にアセットとソースコードをまとめており、映像のループやオーディオリアクティブな演出を実装しています。
 
-Welcome to your Remotion project!
+## セットアップ
 
-## Commands
-
-**Install Dependencies**
-
-```console
-npm i
+```bash
+npm install
 ```
 
-**Start Preview**
+> 依存関係は Remotion 4 系と React 19 を利用しています。Node.js 18 以上を推奨します。
 
-```console
-npm run dev
+## 主なコマンド
+
+| コマンド | 説明 |
+| --- | --- |
+| `npm run dev` | Remotion Studio を起動し、ブラウザでプレビューします。 |
+| `npm run build` | 静的バンドルを生成します。Git では `build/` を無視しています。 |
+| `npm run lint` | ESLint と TypeScript チェックを実行します。GPU 関連の警告が表示される場合があります。 |
+| `npx remotion render` | `MyComp` をデフォルト設定でレンダリングします。必要に応じて `--sequence` や `--props` を追加してください。 |
+
+## ディレクトリ構成
+
+```
+become-zero-mv/
+├── public/            # 入力メディア (movie.mp4, becomezero.wav)
+├── src/               # Remotion コンポーネント群
+├── remotion.config.ts # レンダリング設定
+├── package.json       # スクリプトと依存関係
+└── ...
 ```
 
-**Render video**
+## 開発のヒント
 
-```console
-npx remotion render
-```
+- `src/Composition.tsx` の `durationInFrames` は元動画に合わせて 280 フレームに調整済みです。
+- フィルターやブラーを多用しているため、低スペック環境では `@remotion/slow-css-property` 警告が出ることがあります。パフォーマンス重視ならフィルター強度を下げてください。
+- オーディオ解析のサンプル数を減らす (`numberOfSamples`) とレンダリング負荷を抑えられます。
 
-**Upgrade Remotion**
+## ライセンスとクレジット
 
-```console
-npx remotion upgrade
-```
-
-## Docs
-
-Get started with Remotion by reading the [fundamentals page](https://www.remotion.dev/docs/the-fundamentals).
-
-## Help
-
-We provide help on our [Discord server](https://discord.gg/6VzzNDwUwV).
-
-## Issues
-
-Found an issue with Remotion? [File an issue here](https://github.com/remotion-dev/remotion/issues/new).
-
-## License
-
-Note that for some entities a company license is needed. [Read the terms here](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md).
+- Remotion のライセンスについては [公式リポジトリ](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md) を参照してください。
+- 楽曲および動画素材の権利者に配慮し、公開前に利用条件を確認してください。
