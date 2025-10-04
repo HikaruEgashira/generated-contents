@@ -8,6 +8,7 @@
 cd become-zero-mv
 mise install
 mise exec bun -- bun install
+# direnv を使う場合はこのディレクトリで `direnv allow` を実行
 ```
 
 Remotion 4 系と React 19 を利用しています。`mise` が Bun (1.2.21) を取得するため、Node.js を個別に用意する必要はありません。
