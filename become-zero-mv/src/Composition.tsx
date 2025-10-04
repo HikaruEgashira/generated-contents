@@ -1,4 +1,4 @@
-import { Video, Audio, Loop, staticFile, useCurrentFrame, useVideoConfig, interpolate } from "remotion";
+import { Video, Audio, Loop, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { useAudioData, visualizeAudio } from "@remotion/media-utils";
 
 export const MyComposition = () => {
@@ -21,10 +21,6 @@ export const MyComposition = () => {
   // 低音域（スネア・キック）の平均振幅を計算
   const bassRange = visualization.slice(0, 20);
   const bassAverage = bassRange.reduce((a, b) => a + b, 0) / bassRange.length;
-
-  // 高音域の平均振幅
-  const trebleRange = visualization.slice(100, 150);
-  const trebleAverage = trebleRange.reduce((a, b) => a + b, 0) / trebleRange.length;
 
   // 閾値を超えたらビート検出（閾値を下げて感度を上げる）
   const isBeat = bassAverage > 0.05;
@@ -53,9 +49,6 @@ export const MyComposition = () => {
   const isFlare = bassAverage > 0.15;
   const flareIntensity = isFlare ? (bassAverage - 0.15) * 3 : 0;
 
-  // フィルムグレイン（ノイズ）
-  const grainOpacity = 0.03;
-
   return (
     <div style={{ position: "relative", width: "100%", height: "100%", backgroundColor: "black" }}>
       <Loop durationInFrames={280}>
@@ -82,22 +75,6 @@ export const MyComposition = () => {
           pointerEvents: "none",
         }}
       />
-
-      {/* フィルムグレイン */}
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-          opacity: grainOpacity,
-          pointerEvents: "none",
-          mixBlendMode: "overlay",
-        }}
-      />
-
       {/* ビネット効果 */}
       <div
         style={{
