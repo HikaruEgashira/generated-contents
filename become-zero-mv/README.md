@@ -6,17 +6,18 @@
 
 ```bash
 cd become-zero-mv
-npm install
+mise install
+mise exec bun -- bun install
 ```
 
-Remotion 4 系と React 19 を利用しているため、Node.js 18 以上を推奨します。
+Remotion 4 系と React 19 を利用しています。`mise` が Bun (1.2.21) を取得するため、Node.js を個別に用意する必要はありません。
 
 ## よく使うコマンド
 
-- `npm run dev` – Remotion Studio を起動（プレビュー用）
-- `npm run build` – 静的バンドルを生成
-- `npm run lint` – ESLint と TypeScript チェックを実行
-- `npx remotion render` – `MyComp` をレンダリング
+- `mise exec bun -- bun run dev` – Remotion Studio を起動（プレビュー用）
+- `mise exec bun -- bun run build` – 静的バンドルを生成
+- `mise exec bun -- bun run lint` – ESLint と TypeScript チェックを実行
+- `mise exec bun -- bun x remotion render` – `MyComp` をレンダリング（`--sequence` 等も同様）
 
 ## フォルダ概要
 
