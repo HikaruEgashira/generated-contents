@@ -7,9 +7,9 @@
   "private": true,
   "packageManager": "bun@1.2.21",
   "dependencies": {
-    "@remotion/cli": "4.0.355",
-    "@remotion/media-utils": "^4.0.355",
-    "@remotion/tailwind-v4": "4.0.355",
+    "@remotion/cli": "4.0.410",
+    "@remotion/media-utils": "^4.0.410",
+    "@remotion/tailwind-v4": "4.0.410",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "remotion": "4.0.410",
@@ -19,7 +19,7 @@
     "bun": ">=1.2.21"
   },
   "devDependencies": {
-    "@remotion/eslint-config-flat": "4.0.355",
+    "@remotion/eslint-config-flat": "4.0.410",
     "@types/react": "19.0.0",
     "@types/web": "0.0.166",
     "eslint": "9.19.0",
